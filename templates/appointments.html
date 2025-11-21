@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+    <h2>Appointments</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>PatientID</th><th>DoctorID</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th>
+        </tr>
+        {% for a in appointments %}
+        <tr>
+            <td>{{ a.AppointmentID }}</td>
+            <td>{{ a.PatientID }}</td>
+            <td>{{ a.DoctorID }}</td>
+            <td>{{ a.Date }}</td>
+            <td>{{ a.Time }}</td>
+            <td>{{ a.Status }}</td>
+            <td>
+                <a href="/edit_appointment/{{ a.AppointmentID }}">Edit</a> |
+                <a href="/delete_appointment/{{ a.AppointmentID }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_appointment">Add Appointment</a><br><br>
+    <a href="/home">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>{{ table }} Records</h2>
+  <table border="1">
+    <tr>
+      {% for col in rows[0].keys() %}
+        <th>{{ col }}</th>
+      {% endfor %}
+      <th>Actions</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+      {% for col in row.values() %}
+        <td>{{ col }}</td>
+      {% endfor %}
+      <td><a href="/delete/{{ table|lower }}/{{ row[table+'ID'] }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h3>Add New {{ table }}</h3>
+  <form method="POST" action="/add/{{ table|lower }}">
+    {% for col in rows[0].keys() if col != table+'ID' %}
+      <label>{{ col }}:</label><input type="text" name="{{ col }}"><br>
+    {% endfor %}
+    <input type="submit" value="Add Record">
+  </form>
+
+  <p><a href="/home">Back to Home</a></p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors</title>
+</head>
+<body>
+    <h2>Doctor List</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Specialty</th><th>Phone</th><th>Email</th><th>Actions</th>
+        </tr>
+        {% for doc in doctors %}
+        <tr>
+            <td>{{ doc.DoctorID }}</td>
+            <td>{{ doc.Name }}</td>
+            <td>{{ doc.Specialty }}</td>
+            <td>{{ doc.Phone }}</td>
+            <td>{{ doc.Email }}</td>
+            <td>
+                <a href="/edit_doctor/{{ doc.DoctorID }}">Edit</a> |
+                <a href="/delete_doctor/{{ doc.DoctorID }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_doctor">Add New Doctor</a><br><br>
+    <a href="/home">Back to Home</a>
+</body>
+</html>

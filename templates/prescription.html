@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescriptions</title>
+</head>
+<body>
+    <h2>Prescriptions</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>AppointmentID</th><th>Medication</th><th>Dosage</th><th>Notes</th><th>Actions</th>
+        </tr>
+        {% for p in prescriptions %}
+        <tr>
+            <td>{{ p.PrescriptionID }}</td>
+            <td>{{ p.AppointmentID }}</td>
+            <td>{{ p.Medication }}</td>
+            <td>{{ p.Dosage }}</td>
+            <td>{{ p.Notes }}</td>
+            <td>
+                <a href="/edit_prescription/{{ p.PrescriptionID }}">Edit</a> |
+                <a href="/delete_prescription/{{ p.PrescriptionID }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_prescription">Add Prescription</a><br><br>
+    <a href="/home">Back to Home</a>
+</body>
+</html>

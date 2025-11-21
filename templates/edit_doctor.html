@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Edit Doctor</h2>
+<form method="POST">
+  Name: <input type="text" name="Name" value="{{ doctor.Name }}" required><br><br>
+  Specialty: <input type="text" name="Specialty" value="{{ doctor.Specialty }}" required><br><br>
+  Phone: <input type="text" name="Phone" value="{{ doctor.Phone }}" required><br><br>
+  Email: <input type="email" name="Email" value="{{ doctor.Email }}" required><br><br>
+  <input type="submit" value="Update Doctor">
+</form>
+<br>
+<a href="/doctors">Back to Doctors</a>
+</body>
+</html>

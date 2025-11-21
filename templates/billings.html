@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billings</title>
+</head>
+<body>
+    <h2>Billing Records</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>AppointmentID</th><th>Amount</th><th>Status</th><th>Date</th><th>Actions</th>
+        </tr>
+        {% for b in billings %}
+        <tr>
+            <td>{{ b.BillID }}</td>
+            <td>{{ b.AppointmentID }}</td>
+            <td>{{ b.Amount }}</td>
+            <td>{{ b.PaymentStatus }}</td>
+            <td>{{ b.Date }}</td>
+            <td>
+                <a href="/edit_billing/{{ b.BillID }}">Edit</a> |
+                <a href="/delete_billing/{{ b.BillID }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_billing">Add Billing</a><br><br>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
