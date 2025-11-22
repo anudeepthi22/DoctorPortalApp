@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
-    <h2>Welcome to Doctor Portal</h2>
-    <p>Doctors in system: {{ doctors }}</p>
-    <p>Patients in system: {{ patients }}</p>
+{% extends "base.html" %}
 
-    <a href="/doctors">Doctors</a> |
-    <a href="/patients">Patients</a> |
-    <a href="/appointments">Appointments</a> |
-    <a href="/prescriptions">Prescriptions</a> |
-    <a href="/billings">Billings</a> |
-    <a href="/logout">Logout</a>
-</body>
-</html>
+{% block content %}
+<h2>Dashboard</h2>
+<div class="dashboard">
+    <div class="card">
+        <h3>{{ doctors }}</h3>
+        <p>Total Doctors</p>
+    </div>
+    <div class="card">
+        <h3>{{ patients }}</h3>
+        <p>Total Patients</p>
+    </div>
+</div>
+{% endblock %}
